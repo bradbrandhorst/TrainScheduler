@@ -83,9 +83,8 @@ database.ref("/trainData").on("child_added", function(childSnapshot, prevChildKe
     console.log("MINUTES TILL TRAIN: " + trnMinutesTill);
 
     // Next Train
-    var nextTrain = moment().add(trnTime + trnFrequency + trnMinutesTill, "minutes");
+    var nextTrain = moment().add(trnMinutesTill, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));
-
   
   $("#train-table > tbody").append("<tr><td>" + trnName + "</td><td>" + trnDestination + "</td><td>" +
   trnFrequency + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + trnMinutesTill + "</td><td>" + "" + "</td></tr>");
